@@ -5,16 +5,16 @@ import math
 from moviepy.editor import VideoFileClip, ImageSequenceClip
 import os
 
-fileName = "sample.mp4"
+fileName = "ahhmeme.mp4"
 outputFileName = "output.mp4"
 outputFolder = "output"
-frameRate = 25
+frameRate = VideoFileClip(fileName).fps
 
 chars = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
 charlist = list(chars)
 charlen = len(charlist)
 interval = charlen / 256
-scale_factor = 0.09  # anything above 0.15 is gonna make things worse
+scale_factor = 0.36  # anything above 0.15 is gonna make things worse
 charwidth = 10
 charheight = 10
 
@@ -61,17 +61,13 @@ while True:
 cap.release()
 cv2.destroyAllWindows()
 
-# Create a video clip from the frames and set the audio
 ascii_clip = ImageSequenceClip(frames, fps=frameRate)
 ascii_clip = ascii_clip.set_audio(VideoFileClip(fileName).audio)
 
-# Create the output folder if it doesn't exist
 if not os.path.exists(outputFolder):
     os.makedirs(outputFolder)
 
-# Save the video clip as an MP4 file
 outputPath = os.path.join(outputFolder, outputFileName)
 ascii_clip.write_videofile(outputPath, codec="libx264")
 
-# Open the folder where the video was saved
 os.startfile(outputFolder)
