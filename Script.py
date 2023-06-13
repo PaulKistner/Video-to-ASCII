@@ -5,7 +5,7 @@ import math
 from moviepy.editor import VideoFileClip, ImageSequenceClip
 import os
 
-fileName = "ahhmeme.mp4"
+fileName = "poggers.mp4"
 outputFileName = "output.mp4"
 outputFolder = "output"
 frameRate = VideoFileClip(fileName).fps
@@ -14,7 +14,7 @@ chars = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@
 charlist = list(chars)
 charlen = len(charlist)
 interval = charlen / 256
-scale_factor = 0.36  # anything above 0.15 is gonna make things worse
+scale_factor = 0.6 # anything above 0.15 is gonna make things worse
 charwidth = 10
 charheight = 10
 
